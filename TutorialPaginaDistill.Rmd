@@ -1,0 +1,345 @@
+---
+title: "Distill"
+author: "Miriam Lerma"
+date: "Abril 2021"
+output:
+  xaringan::moon_reader:
+    css: PresDistill-themer.css
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: true
+---
+
+```{r setup, echo=FALSE, include = FALSE}
+#Paquetes
+library(xaringanExtra)
+library(emo)
+library(fontawesome)
+library(kableExtra)
+options(knitr.table.format = "latex")
+#DefinirColores
+ColorLetras<-"#1d3557"
+ColorEnlace<-'#7209B7'
+ColorEnlaceInverso<-"#4cc9f0"
+```
+
+```{r xaringan-panelset, echo=FALSE}
+xaringanExtra::use_panelset()
+```
+
+class: title-slide, center, middle
+background-image: url(https://images.unsplash.com/photo-1513151233558-d860c5398176?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80)
+background-size: cover
+
+`r text_spec("Crear tu propia", background = ColorLetras, color = "white", bold = T)` <br>
+<br>
+<br>
+`r text_spec("Página", background = ColorLetras, color = "white", bold = T, font_size=120)`
+
+<br>
+<h2>`r text_spec("Miriam Lerma", background = ColorLetras, color = "white", bold = T)`</h2>
+
+<h3>`r text_spec("Julio 2021", background = ColorLetras, color = "white", bold = T)`</h3>
+
+
+---
+class: inverse
+
+# Indice
+
+- [Crear tu pagina](#intro)  
+- [CSS](#css)  
+- [Botones](#botones)  
+- [Citas](#citas)
+
+---
+
+class: inverse
+
+# Créditos y recursos
+
+- Tutoriales<br>
+[`r fa("robot", fill = ColorEnlaceInverso)` Crear articulo en distill](https://rstudio.github.io/distill/)<br>
+[`r fa("book-open", fill = ColorEnlaceInverso)` Crear sitio](https://rstudio.github.io/distill/website.html)<br>
+[`r fa("book-open", fill = ColorEnlaceInverso)` (Re-)introducing Distill for R Markdown](https://blog.rstudio.com/2020/12/07/distill/)<br>
+- [`r fa("book-open", fill = ColorEnlaceInverso)` Ejemplos](https://pkgs.rstudio.com/distill/articles/examples.html)<br>
+
+- Videos<br>
+[`r fa("youtube", fill = ColorEnlaceInverso)` RLadies Crear un sitio por Lisa Lendway](https://www.youtube.com/watch?v=Fm3bsYCilEU)<br>
+
+- Portada por [`r fa("camera-retro", fill = ColorEnlaceInverso)` Jason Leung](https://unsplash.com/@ninjason)<br>
+
+---
+
+# 1. Intro
+
+Para crear una pagina web usando distill, basicamente necesitas saber Rmd.
+
+---
+
+### 1.2. Para iniciar la pagina
+
+Empecemos por instalar el paquete.
+```{r, eval=FALSE}
+#install.packages("distill")
+library(distill)
+```
+
+La siguiente pregunta es: ¿Que tipo de página quieres hacer?
+
+¿Sitio web o blog?
+
+```{r, echo=FALSE, out.height=300, fig.align='center'}
+knitr::include_graphics('https://rstudio.github.io/distill/images/create-website.png')
+```
+
+---
+
+### 1.3. Estructura del sitio
+
+La estructura del sitio contiene varios archivos
+
+- La configuración del sitio.
+```{r, eval=FALSE}
+_site.yml
+```
+
+- La primera pagina que se abre cuando entras a la pagina.
+```{r, eval=FALSE}
+index.Rmd
+```
+
+- Es la parte donde escribes sobre el sitio.
+```{r, eval=FALSE}
+about.Rmd
+```
+
+---
+
+### 1.4. Barra de navegación
+
+Para modificar la barra de navegación, abre el archivo _site.yml <br>
+Puedes elegir donde quieres que aparezcan los contenidos. <br>
+Al elegir *left* apareceran a la izquierda. <br>
+Para agregar pestañas agrega text y href. <br>
+```{r, eval=FALSE}
+navbar:
+  left: #<<
+    - text: "Home"
+      href: index.html
+    - text: "Projects" #<<
+      href: projects.html#<<
+    - icon: fab fa-twitter
+      href: https://twitter.com/MiriamLermaL
+    - icon: fab fa-github
+      href: https://github.com/MiriamLL
+
+```
+
+---
+
+### 1.5. Contenido dentro de la pestaña
+
+Yo queria tener sub-pestañas en mi nueva pestaña. <br>
+Entonces escribi en un Rmd. <br>
+
+```{r, eval=FALSE}
+---
+title: "Packages"
+listing:
+  posts:
+    - 2021-03-01-IntroaR
+---
+```
+
+Descubrí que pueden estar dentro de la carpeta post sin complicación.<br>
+Muchos blogs lo tienen en su propia carpeta.  
+
+
+---
+
+### 1.6 Crear un post
+
+```{r, eval=FALSE}
+library(distill)
+create_post("Nombre de tu post")
+```
+
+Aparecerá algo como:
+```{r, eval=FALSE}
+v Created post at _posts/2021-05-14-Nombre de tu post
+```
+Y te abrira un nuevo Rmd.
+
+Fuente: [Uwe's blog](http://uwesterr.de/posts/2020-01-17-create-a-blog-with-distill/)
+
+---
+
+### 1.6 Crear un post
+
+En este nuevo Rmd puedes poner información sobre tu post. <br>
+La información en el yaml aparecerá en el indice de la pestaña.
+
+```{r, eval=FALSE}
+---
+title: "sula"
+description: |
+  A short description of the post.
+author:
+  - name: Miriam Lerma
+    url: {}
+date: 05-14-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+```
+
+---
+
+### 1.7. Para agrega código
+
+Para agregar código y que no salga por otro lado el titulo, texto y codigo hay que tener espacios entre ellos.
+
+```{r, eval=FALSE}
+Titulo
+
+Texto
+
+Chunk
+
+```
+
+
+---
+name: css
+
+# 2. CSS
+
+En _site.yml
+```{r, eval=FALSE}
+output: 
+  distill::distill_article:
+    theme: miriam_css.css
+```
+
+---
+name: botones
+
+# 3. Botones
+
+Instale este paquete:
+```{r, eval=FALSE}
+#remotes::install_github("EllaKaye/distilltools")
+library(distilltools)
+```
+
+Tuve algunos problemas con rlang, asi que tuve que reiniciar sesion y reinstalar el paquete rlang.
+
+---
+
+### 3.1. Agregar botones
+
+Cargar la librería
+```{r libraries, eval=FALSE}
+library(distilltools)
+```
+
+Así se agregan los iconos:
+```{r icon-links, eval=FALSE}
+icon_link(icon = "fas fa-images",
+          text = "slides",
+          url = "https://miriamll.github.io/Tutorial_distill_es/TutorialPaginaDistill")
+```
+
+---
+
+### 3.2. Iconos en botones
+
+Para elegir el icono puedes:
+
+- Entrar a la pagina fontawesome
+```{r, eval=FALSE}
+https://fontawesome.com/icons/download?style=solid
+```
+
+- Elegir el icono. 
+- Buscar la informacion de html. 
+- Copiar lo que esta dentro de 
+```{r, eval=FALSE}
+<i class="fas fa-download"></i>
+```
+
+---
+
+### 3.2. Colores en botones
+
+- [Fuente: Ella Kaye](https://ellakaye.rbind.io/talks/2020-10-29-how-to-get-help-in-r/)
+
+Pegar esto en el css de la pagina, puede cambiar los colores con los que apareceran los iconos.
+```{r, eval=FALSE}
+.icon-link {
+    background-color: transparent;
+    color: #D40067;
+    border: 1px solid;
+    border-color: #D40067;
+    padding: 5px .4rem 5px .4rem;
+    /*margin: 4px;*/
+    margin-top: 4px;
+    margin-right: 8px;
+    margin-bottom: 4px;
+    border-radius: 5px; /* Rounded edges */
+}
+
+.icon-link:hover {
+    background-color: #D40067;
+    border-color: #D40067;
+    color: white;
+}
+```
+
+---
+name: citas
+
+# 4. Citas
+
+Para que aparezcan o no las citas, hay abrir el _site.yml:
+
+Y escribir:
+
+```{r, eval=FALSE}
+collections:
+  posts:
+    citations: false
+```
+
+---
+
+
+class: inverse
+
+# Recapitulando
+
+- [Crear tu pagina](#intro)  
+- [CSS](#css)  
+- [Botones](#botones)  
+- [Citas](#citas)
+
+.right[
+### Contacto
+
+Para dudas, comentarios y sugerencias:<br>
+ Escríbeme a miriamjlerma@gmail.com
+
+Este material esta accesible 
+y se encuentra en <br>
+ mi [`r fa("external-link-alt", fill = ColorEnlaceInverso)`github](https://github.com/MiriamLL/Tutorial_distill_es)
+]
+
+<h1>
+.center[
+[`r fa("home", fill = ColorEnlaceInverso)`](https://www.miriam-lerma.com/materiales.html)
+]</h1>
+

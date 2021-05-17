@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Distill</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Miriam Lerma" />
+    <script src="TutorialPaginaDistill_files/header-attrs-2.8/header-attrs.js"></script>
+    <link href="TutorialPaginaDistill_files/panelset-0.2.4/panelset.css" rel="stylesheet" />
+    <script src="TutorialPaginaDistill_files/panelset-0.2.4/panelset.js"></script>
+    <link rel="stylesheet" href="PresDistill-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+class: title-slide, center, middle
+background-image: url(https://images.unsplash.com/photo-1513151233558-d860c5398176?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80)
+background-size: cover
+
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #1d3557 !important;" &gt;Crear tu propia&lt;/span&gt; &lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #1d3557 !important;font-size: 120px;" &gt;Página&lt;/span&gt;
+
+&lt;br&gt;
+&lt;h2&gt;&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #1d3557 !important;" &gt;Miriam Lerma&lt;/span&gt;&lt;/h2&gt;
+
+&lt;h3&gt;&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #1d3557 !important;" &gt;Julio 2021&lt;/span&gt;&lt;/h3&gt;
+
+
+---
+class: inverse
+
+# Indice
+
+- [Crear tu pagina](#intro)  
+- [CSS](#css)  
+- [Botones](#botones)  
+- [Citas](#citas)
+
+---
+
+class: inverse
+
+# Créditos y recursos
+
+- Tutoriales&lt;br&gt;
+[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 640 512"&gt;&lt;path d="M0 256v128c0 17.7 14.3 32 32 32h32V224H32c-17.7 0-32 14.3-32 32zM464 96H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32v64H176c-44.2 0-80 35.8-80 80v272c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V176c0-44.2-35.8-80-80-80zM256 416h-64v-32h64v32zm-32-120c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm128 120h-64v-32h64v32zm96 0h-64v-32h64v32zm-32-120c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm192-72h-32v192h32c17.7 0 32-14.3 32-32V256c0-17.7-14.3-32-32-32z"/&gt;&lt;/svg&gt; Crear articulo en distill](https://rstudio.github.io/distill/)&lt;br&gt;
+[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z"/&gt;&lt;/svg&gt; Crear sitio](https://rstudio.github.io/distill/website.html)&lt;br&gt;
+[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z"/&gt;&lt;/svg&gt; (Re-)introducing Distill for R Markdown](https://blog.rstudio.com/2020/12/07/distill/)&lt;br&gt;
+- [&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z"/&gt;&lt;/svg&gt; Ejemplos](https://pkgs.rstudio.com/distill/articles/examples.html)&lt;br&gt;
+
+- Videos&lt;br&gt;
+[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/&gt;&lt;/svg&gt; RLadies Crear un sitio por Lisa Lendway](https://www.youtube.com/watch?v=Fm3bsYCilEU)&lt;br&gt;
+
+- Portada por [&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 512 512"&gt;&lt;path d="M48 32C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48H48zm0 32h106c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H38c-3.3 0-6-2.7-6-6V80c0-8.8 7.2-16 16-16zm426 96H38c-3.3 0-6-2.7-6-6v-36c0-3.3 2.7-6 6-6h138l30.2-45.3c1.1-1.7 3-2.7 5-2.7H464c8.8 0 16 7.2 16 16v74c0 3.3-2.7 6-6 6zM256 424c-66.2 0-120-53.8-120-120s53.8-120 120-120 120 53.8 120 120-53.8 120-120 120zm0-208c-48.5 0-88 39.5-88 88s39.5 88 88 88 88-39.5 88-88-39.5-88-88-88zm-48 104c-8.8 0-16-7.2-16-16 0-35.3 28.7-64 64-64 8.8 0 16 7.2 16 16s-7.2 16-16 16c-17.6 0-32 14.4-32 32 0 8.8-7.2 16-16 16z"/&gt;&lt;/svg&gt; Jason Leung](https://unsplash.com/@ninjason)&lt;br&gt;
+
+---
+
+# 1. Intro
+
+Para crear una pagina web usando distill, basicamente necesitas saber Rmd.
+
+---
+
+### 1.2. Para iniciar la pagina
+
+Empecemos por instalar el paquete.
+
+```r
+#install.packages("distill")
+library(distill)
+```
+
+La siguiente pregunta es: ¿Que tipo de página quieres hacer?
+
+¿Sitio web o blog?
+
+&lt;img src="https://rstudio.github.io/distill/images/create-website.png" height="300" style="display: block; margin: auto;" /&gt;
+
+---
+
+### 1.3. Estructura del sitio
+
+La estructura del sitio contiene varios archivos
+
+- La configuración del sitio.
+
+```r
+_site.yml
+```
+
+- La primera pagina que se abre cuando entras a la pagina.
+
+```r
+index.Rmd
+```
+
+- Es la parte donde escribes sobre el sitio.
+
+```r
+about.Rmd
+```
+
+---
+
+### 1.4. Barra de navegación
+
+Para modificar la barra de navegación, abre el archivo _site.yml &lt;br&gt;
+Puedes elegir donde quieres que aparezcan los contenidos. &lt;br&gt;
+Al elegir *left* apareceran a la izquierda. &lt;br&gt;
+Para agregar pestañas agrega text y href. &lt;br&gt;
+
+```r
+navbar:
+* left:
+    - text: "Home"
+      href: index.html
+*   - text: "Projects"
+*     href: projects.html
+    - icon: fab fa-twitter
+      href: https://twitter.com/MiriamLermaL
+    - icon: fab fa-github
+      href: https://github.com/MiriamLL
+```
+
+---
+
+### 1.5. Contenido dentro de la pestaña
+
+Yo queria tener sub-pestañas en mi nueva pestaña. &lt;br&gt;
+Entonces escribi en un Rmd. &lt;br&gt;
+
+
+```r
+---
+title: "Packages"
+listing:
+  posts:
+    - 2021-03-01-IntroaR
+---
+```
+
+Descubrí que pueden estar dentro de la carpeta post sin complicación.&lt;br&gt;
+Muchos blogs lo tienen en su propia carpeta.  
+
+
+---
+
+### 1.6 Crear un post
+
+
+```r
+library(distill)
+create_post("Nombre de tu post")
+```
+
+Aparecerá algo como:
+
+```r
+v Created post at _posts/2021-05-14-Nombre de tu post
+```
+Y te abrira un nuevo Rmd.
+
+Fuente: [Uwe's blog](http://uwesterr.de/posts/2020-01-17-create-a-blog-with-distill/)
+
+---
+
+### 1.6 Crear un post
+
+En este nuevo Rmd puedes poner información sobre tu post. &lt;br&gt;
+La información en el yaml aparecerá en el indice de la pestaña.
+
+
+```r
+---
+title: "sula"
+description: |
+  A short description of the post.
+author:
+  - name: Miriam Lerma
+    url: {}
+date: 05-14-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+```
+
+---
+
+### 1.7. Para agrega código
+
+Para agregar código y que no salga por otro lado el titulo, texto y codigo hay que tener espacios entre ellos.
+
+
+```r
+Titulo
+
+Texto
+
+Chunk
+```
+
+
+---
+name: css
+
+# 2. CSS
+
+En _site.yml
+
+```r
+output: 
+  distill::distill_article:
+    theme: miriam_css.css
+```
+
+---
+name: botones
+
+# 3. Botones
+
+Instale este paquete:
+
+```r
+#remotes::install_github("EllaKaye/distilltools")
+library(distilltools)
+```
+
+Tuve algunos problemas con rlang, asi que tuve que reiniciar sesion y reinstalar el paquete rlang.
+
+---
+
+### 3.1. Agregar botones
+
+Cargar la librería
+
+```r
+library(distilltools)
+```
+
+Así se agregan los iconos:
+
+```r
+icon_link(icon = "fas fa-images",
+          text = "slides",
+          url = "https://miriamll.github.io/Tutorial_distill_es/TutorialPaginaDistill")
+```
+
+---
+
+### 3.2. Iconos en botones
+
+Para elegir el icono puedes:
+
+- Entrar a la pagina fontawesome
+
+```r
+https://fontawesome.com/icons/download?style=solid
+```
+
+- Elegir el icono. 
+- Buscar la informacion de html. 
+- Copiar lo que esta dentro de 
+
+```r
+&lt;i class="fas fa-download"&gt;&lt;/i&gt;
+```
+
+---
+
+### 3.2. Colores en botones
+
+- [Fuente: Ella Kaye](https://ellakaye.rbind.io/talks/2020-10-29-how-to-get-help-in-r/)
+
+Pegar esto en el css de la pagina, puede cambiar los colores con los que apareceran los iconos.
+
+```r
+.icon-link {
+    background-color: transparent;
+    color: #D40067;
+    border: 1px solid;
+    border-color: #D40067;
+    padding: 5px .4rem 5px .4rem;
+    /*margin: 4px;*/
+    margin-top: 4px;
+    margin-right: 8px;
+    margin-bottom: 4px;
+    border-radius: 5px; /* Rounded edges */
+}
+
+.icon-link:hover {
+    background-color: #D40067;
+    border-color: #D40067;
+    color: white;
+}
+```
+
+---
+name: citas
+
+# 4. Citas
+
+Para que aparezcan o no las citas, hay abrir el _site.yml:
+
+Y escribir:
+
+
+```r
+collections:
+  posts:
+    citations: false
+```
+
+---
+
+
+class: inverse
+
+# Recapitulando
+
+- [Crear tu pagina](#intro)  
+- [CSS](#css)  
+- [Botones](#botones)  
+- [Citas](#citas)
+
+.right[
+### Contacto
+
+Para dudas, comentarios y sugerencias:&lt;br&gt;
+ Escríbeme a miriamjlerma@gmail.com
+
+Este material esta accesible 
+y se encuentra en &lt;br&gt;
+ mi [&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M576 24v127.984c0 21.461-25.96 31.98-40.971 16.971l-35.707-35.709-243.523 243.523c-9.373 9.373-24.568 9.373-33.941 0l-22.627-22.627c-9.373-9.373-9.373-24.569 0-33.941L442.756 76.676l-35.703-35.705C391.982 25.9 402.656 0 424.024 0H552c13.255 0 24 10.745 24 24zM407.029 270.794l-16 16A23.999 23.999 0 0 0 384 303.765V448H64V128h264a24.003 24.003 0 0 0 16.97-7.029l16-16C376.089 89.851 365.381 64 344 64H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V287.764c0-21.382-25.852-32.09-40.971-16.97z"/&gt;&lt;/svg&gt;github](https://github.com/MiriamLL/Tutorial_distill_es)
+]
+
+&lt;h1&gt;
+.center[
+[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/&gt;&lt;/svg&gt;](https://www.miriam-lerma.com/materiales.html)
+]&lt;/h1&gt;
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
