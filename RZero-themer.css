@@ -43,18 +43,18 @@
   --header-h3-font-size: 1.75rem;
 
   /* Colors */
-  --text-color: #023e8a;
-  --header-color: #023e8a;
-  --background-color: #FFFFFF;
-  --link-color: #0077b6;
-  --text-bold-color: #0077b6;
-  --code-highlight-color: rgba(255,255,0,0.5);
+  --text-color: #457b9d;
+  --header-color: #264653;
+  --background-color: #ffffff;
+  --link-color: #219ebc;
+  --text-bold-color: #219ebc;
+  --code-highlight-color: rgba(76,201,240,0.5);
   --inverse-text-color: #FFFFFF;
-  --inverse-background-color: #1d3557;
+  --inverse-background-color: #264653;
   --inverse-header-color: #FFFFFF;
   --inverse-link-color: #4cc9f0;
-  --title-slide-background-color: #300660;
-  --title-slide-text-color: #edf6f9;
+  --title-slide-background-color: #264653;
+  --title-slide-text-color: #fefae0;
   --header-background-color: #2a9d8f;
   --header-background-text-color: #faf9f9;
   --base: #2a9d8f;
@@ -71,13 +71,11 @@ body {
   font-weight: normal;
   color: var(--text-color);
 }
-
 h1, h2, h3 {
   font-family: var(--header-font-family), var(--header-font-family-fallback);
   font-weight: 600;
   color: var(--header-color);
 }
-
 .remark-slide-content {
   background-color: var(--background-color);
   font-size: 1rem;
@@ -85,46 +83,37 @@ h1, h2, h3 {
   width: 100%;
   height: 100%;
 }
-
 .remark-slide-content h1 {
   font-size: var(--header-h1-font-size);
 }
-
 .remark-slide-content h2 {
   font-size: var(--header-h2-font-size);
 }
-
 .remark-slide-content h3 {
   font-size: var(--header-h3-font-size);
 }
-
 .remark-code, .remark-inline-code {
   font-family: var(--code-font-family), Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
 }
-
 .remark-code {
   font-size: var(--code-font-size);
 }
-
 .remark-inline-code {
   font-size: var(--code-inline-font-size);
-  color: #2a9d8f;
-  background-color: #ade8f4;
+  color: #b7b7a4;
+  background-color: #83c5be;
   padding: 2px;
 }
-
 .remark-slide-number {
-  color: #ade8f4;
+  color: #b7b7a4;
   opacity: 1;
   font-size: 0.9em;
 }
-
 strong { color: var(--text-bold-color); }
 a, a > code {
   color: var(--link-color);
   text-decoration: none;
 }
-
 .footnote {
   position: absolute;
   bottom: 60px;
@@ -134,7 +123,6 @@ a, a > code {
 .remark-code-line-highlighted {
   background-color: var(--code-highlight-color);
 }
-
 .inverse {
   background-color: var(--inverse-background-color);
   color: var(--inverse-text-color);
@@ -143,7 +131,6 @@ a, a > code {
 .inverse h1, .inverse h2, .inverse h3 {
   color: var(--inverse-header-color);
 }
-
 .inverse a, .inverse a > code {
   color: var(--inverse-link-color);
 }
